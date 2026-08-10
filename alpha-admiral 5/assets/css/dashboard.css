@@ -1,0 +1,94 @@
+/* ============================================================
+   ALPHA by Admiral — Course Dashboard
+   ============================================================ */
+
+.dash-header {
+  padding: calc(var(--space-9) + 40px) 0 var(--space-7);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.dash-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.dash-header__meta {
+  display: flex;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.dash-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dash-stat__value {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+}
+
+.dash-stat__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+}
+
+.dash-grid-wrap {
+  padding: var(--space-8) 0 var(--space-10);
+}
+
+.dash-grid {
+  counter-reset: plate;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 980px) {
+  .dash-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* larger course card variant used only on the dashboard */
+.dash-grid .course-card {
+  padding: var(--space-7);
+  min-height: 320px;
+}
+
+.dash-grid .course-card__blurb {
+  font-size: 1rem;
+}
+
+/* Empty-state note shown inside each card while content is authored */
+.course-card__empty {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px dashed var(--color-line);
+  border-radius: var(--radius-sm);
+  color: var(--color-slate);
+  font-size: 0.85rem;
+}
+
+.course-card__empty svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}

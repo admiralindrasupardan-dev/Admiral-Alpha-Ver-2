@@ -1,0 +1,252 @@
+/* ============================================================
+   ALPHA by Admiral — Design Tokens & Base Styles
+   This file is the single source of truth for color, type,
+   spacing, radius and motion. New pages/components should pull
+   from these variables rather than hardcoding values.
+   ============================================================ */
+
+:root {
+  /* Color — dark "archive" palette: deep graphite background, warm
+     off-white text, brass/champagne accent kept as the one warm note.
+     Token NAMES describe their role (paper = page background, ink =
+     primary text), not a literal light/dark value — this lets every
+     component below read from the same variables unchanged. */
+  --color-paper: #101216;
+  --color-paper-alt: #171a20;
+  --color-ink: #f1efe9;
+  --color-ink-soft: #c7c4bc;
+  --color-navy-deep: #241417;
+  --color-navy-deep-alt: #2c181c;
+  --color-slate: #8b8d93;
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-line-on-dark: rgba(255, 255, 255, 0.14);
+  --color-accent: #b9925e;
+  --color-accent-strong: #d3ab77;
+  --color-accent-soft: rgba(185, 146, 94, 0.16);
+  --color-white: #1b1e25;
+
+  /* Metal — used by the compass instrument (brushed brass / champagne gold) */
+  --metal-highlight: #f3e4c8;
+  --metal-mid: #c9a06a;
+  --metal-shadow: #8a6a3e;
+
+  /* Type */
+  --font-display: "Newsreader", "Iowan Old Style", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", monospace;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 26px;
+  --radius-full: 999px;
+
+  /* Shadow — real depth needs near-black, high-opacity shadows on a
+     dark surface; a dark shadow at light-theme opacity would vanish. */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 28px 64px rgba(0, 0, 0, 0.45);
+  --shadow-accent: 0 10px 30px rgba(185, 146, 94, 0.28);
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-med: 340ms;
+  --dur-slow: 720ms;
+
+  /* Space scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 140px;
+
+  --container-w: 1180px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Nearly-invisible editorial grid + soft radial light. Fixed so it reads
+   as part of the surface rather than scrolling content. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    radial-gradient(60% 45% at 82% 8%, rgba(185, 146, 94, 0.07), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 120px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 120px);
+}
+
+/* Extremely fine film grain. On a dark surface, "screen" blend lightens
+   rather than "multiply" darkening into invisibility, giving the same
+   quiet physical-material quality the light theme had. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 var(--space-5);
+  }
+}
+
+.section {
+  padding: var(--space-9) 0;
+}
+
+@media (max-width: 780px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+}
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--color-accent-strong);
+  display: inline-block;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+}
+
+.lede {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--color-ink-soft);
+  max-width: 46ch;
+  line-height: 1.65;
+}
+
+.text-slate {
+  color: var(--color-slate);
+}
+
+/* ---------- Focus states ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Motion preference ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

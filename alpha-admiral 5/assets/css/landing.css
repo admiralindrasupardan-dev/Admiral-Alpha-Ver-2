@@ -1,0 +1,275 @@
+/* ============================================================
+   ALPHA by Admiral — Landing Page
+   ============================================================ */
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--space-9);
+}
+
+/* Warm parchment glow behind the whole hero — the "paper" material,
+   rendered as light rather than texture so it stays lightweight. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 55% at 68% 42%, rgba(201, 160, 106, 0.1), transparent 72%);
+}
+
+/* Celestial + map atmosphere — a single static SVG layer behind everything.
+   Purely decorative, aria-hidden, no per-frame cost. */
+.hero__atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: var(--color-ink);
+}
+
+/* The architectural frame: corner registration marks + coordinate ticks
+   surrounding the instrument, drawn once as the hero assembles. Stretches
+   to the visual column's exact rectangle; non-scaling-stroke keeps the
+   line weight crisp under that stretch. */
+.hero__blueprint-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: var(--color-ink);
+}
+
+/* 40 / 60 composition: text column, then the compass + atmosphere visual */
+.hero__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.hero__content {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* ---------- Visual column ---------- */
+.hero__visual {
+  position: relative;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__compass-wrap {
+  position: relative;
+  z-index: 2;
+  width: min(52%, 360px);
+  will-change: transform;
+  animation: compassFloat 9s var(--ease) infinite;
+}
+
+/* The float animation (above) owns translateY; the tilt layer (below,
+   driven by compass.js) owns rotateX/rotateY — kept separate so the
+   two motions never overwrite each other's transform value. */
+.hero__compass-tilt {
+  width: 100%;
+  will-change: transform;
+}
+
+.hero__compass-glow {
+  position: absolute;
+  inset: -20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(185, 146, 94, 0.28), transparent 70%);
+  opacity: 0;
+  filter: blur(24px);
+  transition: opacity var(--dur-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.hero__compass-wrap:hover .hero__compass-glow {
+  opacity: 0.7;
+}
+
+.hero__compass {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Instrument captions — manuscript marginalia, not app UI */
+.hero__instrument-caption {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+  white-space: nowrap;
+}
+
+.hero__instrument-caption--top {
+  top: 4%;
+  left: 0;
+}
+
+.hero__instrument-caption--bottom {
+  bottom: 4%;
+  right: 0;
+  text-align: right;
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  bottom: var(--space-7);
+  left: var(--space-6);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+}
+
+.hero__scroll-cue span {
+  width: 1px;
+  height: 34px;
+  background: var(--color-line);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__scroll-cue span::after {
+  content: "";
+  position: absolute;
+  top: -34px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  animation: scrollCue 2.2s var(--ease) infinite;
+}
+
+@keyframes scrollCue {
+  0% { top: -34px; }
+  60% { top: 34px; }
+  100% { top: 34px; }
+}
+
+@media (max-width: 980px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__visual {
+    height: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__visual {
+    height: 380px;
+  }
+  .hero__compass-wrap {
+    width: 72%;
+  }
+  .hero__scroll-cue {
+    display: none;
+  }
+}
+
+/* ---------- Section headers ---------- */
+.section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.section__head .lede {
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 700px) {
+  .section__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ---------- Course preview grid ---------- */
+.section--alt {
+  background: var(--color-paper-alt);
+}
+
+.course-grid {
+  counter-reset: plate;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 980px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-divider-wrap {
+  padding: var(--space-2) 0;
+}
+
+/* ---------- Closing CTA ---------- */
+.cta-band {
+  background: var(--color-navy-deep);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  color: var(--color-ink);
+}
+
+.cta-band h2 {
+  color: var(--color-ink);
+  max-width: 20ch;
+}
+
+.cta-band p {
+  color: var(--color-ink-soft);
+  margin-top: var(--space-2);
+  max-width: 40ch;
+}

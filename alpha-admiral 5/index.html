@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALPHA by Admiral — Precision Learning Platform</title>
+  <meta name="description" content="ALPHA by Admiral is a precision learning platform for English for Banking, English for Management, and private English lessons." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="stylesheet" href="assets/css/landing.css" />
+  <link rel="stylesheet" href="assets/css/experience.css" />
+</head>
+<body>
+
+  <!-- ================= PRELOADER ================= -->
+  <div id="preloader" class="preloader" role="dialog" aria-label="Loading ALPHA" aria-live="polite">
+    <div class="preloader__inner">
+      <svg class="preloader__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.4" stroke="currentColor" stroke-width="1"/>
+        <path d="M12 3.6V6M12 18V20.4M3.6 12H6M18 12H20.4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        <path d="M12 8.4L13.6 12L12 15.6L10.4 12L12 8.4Z" fill="currentColor"/>
+      </svg>
+      <span class="preloader__brand">ALPHA<span class="preloader__brand-sub">Admiral</span></span>
+      <div class="preloader__counter">
+        <span id="preloaderCount">0</span><span class="preloader__percent">%</span>
+      </div>
+      <div class="preloader__bar"><span id="preloaderBarFill"></span></div>
+      <p class="preloader__status" id="preloaderStatus">Initializing Archive</p>
+      <button class="preloader__enter" id="preloaderEnter" type="button" style="display:none;">Enter</button>
+    </div>
+  </div>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="brand" aria-label="ALPHA by Admiral, home">
+        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.4" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M12 3.6V6M12 18V20.4M3.6 12H6M18 12H20.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M12 8.4L13.6 12L12 15.6L10.4 12L12 8.4Z" fill="currentColor"/>
+        </svg>
+        ALPHA<span class="brand__sub">Admiral</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#courses">Courses</a>
+        <a href="#platform">Platform</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="dashboard.html" class="btn btn--primary btn--sm">Launch Dashboard</a>
+        <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+
+    <!-- Atmosphere: faint celestial geometry + paper-map contour lines.
+         Purely decorative, static, aria-hidden — no per-frame cost. -->
+    <svg class="hero__atmosphere" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <!-- map contour lines, like a chart's coastline -->
+      <path d="M -40 620 C 220 560, 380 700, 640 630 S 1040 520, 1440 600" fill="none" stroke="currentColor" stroke-opacity="0.05" stroke-width="1.2"/>
+      <path d="M -40 700 C 260 660, 420 780, 700 720 S 1080 640, 1440 710" fill="none" stroke="currentColor" stroke-opacity="0.04" stroke-width="1"/>
+      <!-- celestial coordinate ring, oversized and off-canvas -->
+      <circle cx="1180" cy="220" r="460" fill="none" stroke="currentColor" stroke-opacity="0.05" stroke-width="1" stroke-dasharray="2 10"/>
+      <circle cx="1180" cy="220" r="360" fill="none" stroke="currentColor" stroke-opacity="0.06" stroke-width="1"/>
+      <!-- star field -->
+      <circle cx="980" cy="120" r="1.6" fill="currentColor" opacity="0.4"/>
+      <circle cx="1120" cy="90" r="1.2" fill="currentColor" opacity="0.3"/>
+      <circle cx="1250" cy="180" r="1.8" fill="currentColor" opacity="0.35"/>
+      <circle cx="1080" cy="260" r="1.2" fill="currentColor" opacity="0.28"/>
+      <circle cx="1310" cy="320" r="1.4" fill="currentColor" opacity="0.3"/>
+      <circle cx="900" cy="220" r="1" fill="currentColor" opacity="0.25"/>
+      <circle cx="1200" cy="400" r="1.3" fill="currentColor" opacity="0.28"/>
+      <!-- faint constellation lines -->
+      <path d="M980 120 L1120 90 L1250 180" fill="none" stroke="currentColor" stroke-opacity="0.12" stroke-width="0.6"/>
+      <path d="M1080 260 L1200 400" fill="none" stroke="currentColor" stroke-opacity="0.1" stroke-width="0.6"/>
+    </svg>
+
+    <div class="container hero__grid">
+
+      <div class="hero__content">
+        <span class="eyebrow reveal is-visible">Precision Learning Platform</span>
+        <h1 class="reveal is-visible" style="transition-delay:80ms">Every lesson begins with direction.</h1>
+        <p class="lede reveal is-visible" style="transition-delay:160ms">
+          ALPHA is a precision learning platform for English for Banking, English for
+          Management, and private study — one clear, well-built home for every subject,
+          designed to bring direction to each lesson and grow one course at a time.
+        </p>
+        <div class="hero__actions reveal is-visible" style="transition-delay:240ms">
+          <a href="dashboard.html" class="btn btn--accent">Launch Dashboard</a>
+          <a href="#platform" class="btn btn--ghost">Explore Platform</a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal is-visible" style="transition-delay:200ms">
+
+        <!-- Ambient gold particles, populated by particles.js -->
+        <div class="hero__particles" aria-hidden="true"></div>
+
+        <!-- Architectural frame: registration marks + coordinate ticks,
+             drawn once as the instrument assembles. Stretched to the
+             visual column's rectangle; non-scaling-stroke keeps line
+             weight crisp under that stretch. -->
+        <svg class="hero__blueprint-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-opacity="0.4" stroke-width="1" fill="none" vector-effect="non-scaling-stroke">
+            <path class="bp-draw-fast" style="animation-delay:0.05s" d="M2,10 L2,2 L10,2"/>
+            <path class="bp-draw-fast" style="animation-delay:0.15s" d="M90,2 L98,2 L98,10"/>
+            <path class="bp-draw-fast" style="animation-delay:0.25s" d="M98,90 L98,98 L90,98"/>
+            <path class="bp-draw-fast" style="animation-delay:0.35s" d="M10,98 L2,98 L2,90"/>
+          </g>
+          <g stroke="currentColor" stroke-opacity="0.28" stroke-width="0.8" vector-effect="non-scaling-stroke">
+            <path class="bp-draw-fast" style="animation-delay:0.5s" d="M50,3 L50,9"/>
+            <path class="bp-draw-fast" style="animation-delay:0.58s" d="M50,91 L50,97"/>
+            <path class="bp-draw-fast" style="animation-delay:0.66s" d="M3,50 L9,50"/>
+            <path class="bp-draw-fast" style="animation-delay:0.74s" d="M91,50 L97,50"/>
+          </g>
+        </svg>
+
+        <!-- Floating archive-preview cards -->
+        <div class="hero-card hero-card--1">
+          <span class="hero-card__label">Continue Learning</span>
+          <span class="hero-card__title">English for Banking</span>
+          <span class="hero-card__meta">Unit 4 · Financial Vocabulary</span>
+          <div class="hero-card__bar"><span style="width:62%"></span></div>
+        </div>
+
+        <div class="hero-card hero-card--2">
+          <span class="hero-card__label">Weekly Goal</span>
+          <span class="hero-card__title">4 / 5 lessons</span>
+          <span class="hero-card__meta">One session remaining</span>
+          <div class="hero-card__bar"><span style="width:80%"></span></div>
+        </div>
+
+        <div class="hero-card hero-card--3">
+          <span class="hero-card__label">Vocabulary</span>
+          <span class="hero-card__title">12 new words</span>
+          <span class="hero-card__meta">Saved this week</span>
+        </div>
+
+        <!-- Compass: ALPHA's signature instrument — The Navigator -->
+        <div class="hero__compass-wrap">
+          <span class="hero__instrument-caption hero__instrument-caption--top">Alpha — Plate I</span>
+          <div class="hero__compass-glow" aria-hidden="true"></div>
+          <div class="hero__compass-tilt">
+            <svg class="hero__compass" viewBox="0 0 520 520" aria-hidden="true">
+              <defs>
+                <linearGradient id="metalRing" x1="15%" y1="0%" x2="85%" y2="100%">
+                  <stop offset="0%" stop-color="#f3e4c8"/>
+                  <stop offset="45%" stop-color="#c9a06a"/>
+                  <stop offset="100%" stop-color="#8a6a3e"/>
+                </linearGradient>
+                <radialGradient id="dialFace" cx="42%" cy="36%" r="72%">
+                  <stop offset="0%" stop-color="#fbf9f4"/>
+                  <stop offset="100%" stop-color="#e8e3d6"/>
+                </radialGradient>
+                <linearGradient id="needleGold" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#f6e8cd"/>
+                  <stop offset="100%" stop-color="#b9925e"/>
+                </linearGradient>
+                <linearGradient id="needleGraphite" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#12151c"/>
+                  <stop offset="100%" stop-color="#3a3f4a"/>
+                </linearGradient>
+                <filter id="ambientShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#12151c" flood-opacity="0.16"/>
+                </filter>
+              </defs>
+
+              <g filter="url(#ambientShadow)">
+                <!-- rings draw themselves in, outer to inner -->
+                <path class="bp-draw-slow" style="animation-delay:0.75s" d="M260,60 L360,86.8 L433.2,160 L460,260 L433.2,360 L360,433.2 L260,460 L160,433.2 L86.8,360 L60,260 L86.8,160 L160,86.8 Z"
+                      fill="none" stroke="url(#metalRing)" stroke-width="14" stroke-linejoin="round"/>
+                <circle class="bp-draw-slow" style="animation-delay:0.9s" cx="260" cy="260" r="193" fill="none" stroke="#12151c" stroke-opacity="0.16" stroke-width="1"/>
+                <circle class="bp-draw-slow" style="animation-delay:1.05s" cx="260" cy="260" r="207" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="1"/>
+                <!-- dial face resolves after the rings are drawn -->
+                <g class="bp-fade" style="animation-delay:1.7s">
+                  <circle cx="260" cy="260" r="182" fill="url(#dialFace)"/>
+                  <path d="M 128 168 A 190 190 0 0 1 372 150" stroke="#ffffff" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round" fill="none"/>
+                </g>
+              </g>
+
+              <!-- true index — a fixed reference mark, level with the brow line -->
+              <path class="bp-fade" style="animation-delay:2s" d="M260 34 L260 50" stroke="#12151c" stroke-opacity="0.5" stroke-width="1.4" stroke-linecap="round"/>
+
+              <!-- engraved bezel ticks — fade in, then rotate slowly forever,
+                   independent of the needle -->
+              <g class="bp-fade" style="animation-delay:1.15s">
+                <g class="hero__compass-spin">
+                  <g transform="rotate(0 260 260)"><line x1="260" y1="76" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/><line x1="261" y1="77" x2="261" y2="93" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.8" stroke-linecap="round"/></g>
+                  <g transform="rotate(30 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                  <g transform="rotate(60 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                  <g transform="rotate(90 260 260)"><line x1="260" y1="76" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/><line x1="261" y1="77" x2="261" y2="93" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.8" stroke-linecap="round"/></g>
+                  <g transform="rotate(120 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                  <g transform="rotate(150 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                  <g transform="rotate(180 260 260)"><line x1="260" y1="76" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/><line x1="261" y1="77" x2="261" y2="93" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.8" stroke-linecap="round"/></g>
+                  <g transform="rotate(210 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                  <g transform="rotate(240 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                  <g transform="rotate(270 260 260)"><line x1="260" y1="76" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/><line x1="261" y1="77" x2="261" y2="93" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.8" stroke-linecap="round"/></g>
+                  <g transform="rotate(300 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                  <g transform="rotate(330 260 260)"><line x1="260" y1="82" x2="260" y2="95" stroke="#12151c" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/></g>
+                </g>
+              </g>
+
+              <!-- diamond needle — settles once the instrument has assembled -->
+              <g class="compass__needle">
+                <path d="M260 150 L284 260 L236 260 Z" fill="url(#needleGold)" stroke="#12151c" stroke-opacity="0.2" stroke-width="0.6"/>
+                <path d="M260 380 L284 260 L236 260 Z" fill="url(#needleGraphite)" stroke="#12151c" stroke-opacity="0.2" stroke-width="0.6"/>
+                <circle cx="260" cy="260" r="9" fill="url(#metalRing)" stroke="#12151c" stroke-opacity="0.25" stroke-width="1"/>
+              </g>
+            </svg>
+          </div>
+          <span class="hero__instrument-caption hero__instrument-caption--bottom">Direction, not destination</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero__scroll-cue" aria-hidden="true">
+      <span></span>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ================= CODEX GATEWAY ================= -->
+  <section class="section codex-gate">
+    <div class="container codex-gate__inner">
+      <span class="eyebrow reveal">The Codex</span>
+      <h2 class="reveal" style="transition-delay:60ms">What's inside stays closed until you open it.</h2>
+      <p class="lede reveal" style="transition-delay:120ms">Every course, every module — catalogued and waiting.
+        Open the Codex to step in.</p>
+
+      <button class="codex reveal" id="codexTrigger" type="button" aria-label="Open the Codex to see the courses" style="transition-delay:200ms">
+        <span class="codex__panel codex__panel--left"></span>
+        <span class="codex__panel codex__panel--right"></span>
+        <span class="codex__seam"></span>
+        <span class="codex__glow" aria-hidden="true"></span>
+        <span class="codex__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8.4" stroke="currentColor" stroke-width="1"/>
+            <path d="M12 3.6V6M12 18V20.4M3.6 12H6M18 12H20.4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="codex__label">Open the Codex</span>
+      </button>
+    </div>
+  </section>
+
+  <div class="section-divider-wrap"><div class="divider"><span class="divider__mark"></span></div></div>
+
+  <!-- ================= COURSES ================= -->
+  <section class="section section--alt" id="courses">
+    <div class="container">
+      <div class="section__head reveal">
+        <div>
+          <span class="eyebrow">Courses</span>
+          <h2 style="margin-top:12px">Every subject, one platform.</h2>
+          <p class="lede">Placeholders today, full courses soon — each one built on the same
+            foundation, so adding the next never means starting over.</p>
+        </div>
+      </div>
+
+      <div class="course-grid reveal-stagger" id="courseGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= PLATFORM MODULES ================= -->
+  <section class="section" id="platform">
+    <div class="container">
+      <div class="section__head reveal">
+        <div>
+          <span class="eyebrow">Platform</span>
+          <h2 style="margin-top:12px">A teaching ecosystem, charted in full.</h2>
+          <p class="lede">This is the index of where ALPHA is headed — each module catalogued
+            below, arriving as its own future entry.</p>
+        </div>
+      </div>
+
+      <div class="index-list reveal-stagger">
+        <div class="index-row">
+          <span class="index-row__code">DB</span>
+          <div>
+            <h3 class="index-row__title">Learning Dashboard</h3>
+            <p class="index-row__desc">Your command centre for every course, all in one clean view.</p>
+          </div>
+          <span class="index-row__status index-row__status--live">Live</span>
+        </div>
+
+        <div class="index-row">
+          <span class="index-row__code">LS</span>
+          <div>
+            <h3 class="index-row__title">Weekly Lessons</h3>
+            <p class="index-row__desc">Structured weekly content that builds progressively.</p>
+          </div>
+          <span class="index-row__status">Planned</span>
+        </div>
+
+        <div class="index-row">
+          <span class="index-row__code">RD</span>
+          <div>
+            <h3 class="index-row__title">Interactive Reading</h3>
+            <p class="index-row__desc">Texts you can annotate, explore, and revisit.</p>
+          </div>
+          <span class="index-row__status">Planned</span>
+        </div>
+
+        <div class="index-row">
+          <span class="index-row__code">VB</span>
+          <div>
+            <h3 class="index-row__title">Vocabulary</h3>
+            <p class="index-row__desc">Words in context, organised by subject and theme.</p>
+          </div>
+          <span class="index-row__status">Planned</span>
+        </div>
+
+        <div class="index-row">
+          <span class="index-row__code">QZ</span>
+          <div>
+            <h3 class="index-row__title">Quizzes</h3>
+            <p class="index-row__desc">Quick checks that reinforce what's just been learned.</p>
+          </div>
+          <span class="index-row__status">Planned</span>
+        </div>
+
+        <div class="index-row">
+          <span class="index-row__code">AC</span>
+          <div>
+            <h3 class="index-row__title">Activities</h3>
+            <p class="index-row__desc">Practical tasks that put language into action.</p>
+          </div>
+          <span class="index-row__status">Planned</span>
+        </div>
+
+        <div class="index-row">
+          <span class="index-row__code">TT</span>
+          <div>
+            <h3 class="index-row__title">Teacher Toolkit</h3>
+            <p class="index-row__desc">Tools for planning, tracking, and adapting lessons.</p>
+          </div>
+          <span class="index-row__status">Planned</span>
+        </div>
+
+        <div class="index-row">
+          <span class="index-row__code">RS</span>
+          <div>
+            <h3 class="index-row__title">Resources</h3>
+            <p class="index-row__desc">Supplementary materials, always within reach.</p>
+          </div>
+          <span class="index-row__status">Planned</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider-wrap"><div class="divider"><span class="divider__mark"></span></div></div>
+
+  <!-- ================= CLOSING CTA ================= -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Direction, ready when you are.</h2>
+          <p>Step into the dashboard to see every course laid out and waiting to be built on.</p>
+        </div>
+        <a href="dashboard.html" class="btn btn--accent">Continue Journey</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand" style="font-size:1.1rem">ALPHA<span class="brand__sub">Admiral</span></span>
+        <span class="footer__note">© <span id="footerYear"></span> ALPHA by Admiral. Learn Without Limits.</span>
+      </div>
+      <div class="footer__links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#platform">Platform</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/courses-data.js"></script>
+  <script src="assets/js/render-courses.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/compass.js"></script>
+  <script src="assets/js/sound.js"></script>
+  <script src="assets/js/preloader.js"></script>
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/cursor-glow.js"></script>
+  <script src="assets/js/codex.js"></script>
+  <script>
+    renderCourseGrid("courseGrid", ALPHA_COURSES);
+  </script>
+</body>
+</html>
