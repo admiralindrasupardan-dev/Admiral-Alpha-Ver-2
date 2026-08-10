@@ -1,0 +1,34 @@
+function checkPoll(btn, isCorrect) {
+  const feedback = document.getElementById('pollFeedback');
+  const buttons = document.querySelectorAll('#pollGroup .poll-btn');
+  
+  buttons.forEach(b => b.style.borderColor = 'var(--color-line)');
+  
+  if (isCorrect) {
+    btn.style.borderColor = '#4caf50';
+    feedback.style.color = '#4caf50';
+    feedback.innerText = 'Correct! "Payung" is not a banking product.';
+  } else {
+    btn.style.borderColor = '#f44336';
+    feedback.style.color = '#f44336';
+    feedback.innerText = 'Incorrect. That is a core banking product. Try again!';
+  }
+}
+
+function solveCase(choice) {
+  const feedback = document.getElementById('caseFeedback');
+  if (choice === 'deposit') {
+    feedback.style.color = '#4caf50';
+    feedback.innerText = 'Excellent choice! Time Deposit (Deposito) fits Pak Budi’s 5-year medium-term goal with guaranteed return and fixed tenure.';
+  } else {
+    feedback.style.color = '#f44336';
+    feedback.innerText = 'Not optimal. Consider Pak Budi’s 5-year timeline and risk profile.';
+  }
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  const feedback = document.getElementById('formFeedback');
+  feedback.style.color = '#4caf50';
+  feedback.innerText = 'Deposit slip validated and processed successfully!';
+}
