@@ -19,7 +19,7 @@ const ALPHA_COURSES = [
     format: "Semester Course",
     blurb:
       "Financial vocabulary, case studies, and professional communication built for banking and finance students.",
-    href: null,
+    href: "week-1.html", // <-- Tautan modul Week 1 ditambahkan di sini
   },
   {
     code: "EN-MGT",
@@ -35,6 +35,13 @@ const ALPHA_COURSES = [
     code: "EN-PVT",
     title: "English Course",
     context: "Private Lessons",
+    level: "All Levels",
+    format: "1-on-1 / Small Group",
+    blurb:
+      "Personalized lessons shaped around individual goals, pace, and interests.",
+    href: null,
+  },
+];    context: "Private Lessons",
     level: "All Levels",
     format: "1-on-1 / Small Group",
     blurb:
