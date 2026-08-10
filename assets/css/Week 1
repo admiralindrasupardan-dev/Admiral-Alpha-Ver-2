@@ -1,390 +1,227 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 1: Personal Finance & Banking Profiles — ALPHA</title>
-  <meta name="description" content="Praktika English for Business - Week 1 Learning Module at Universitas Siliwangi." />
+.module-body {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+.mod-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-7);
+}
 
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/animations.css" />
-  <link rel="stylesheet" href="assets/css/dashboard.css" />
-  <link rel="stylesheet" href="assets/css/experience.css" />
-  <link rel="stylesheet" href="assets/css/week1.css" />
-</head>
-<body>
+.mod-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="container nav__inner">
-      <a href="index.html" class="brand" aria-label="ALPHA by Admiral, home">
-        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="8.4" stroke="currentColor" stroke-width="1.3"/>
-          <path d="M12 3.6V6M12 18V20.4M3.6 12H6M18 12H20.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-          <path d="M12 8.4L13.6 12L12 15.6L10.4 12L12 8.4Z" fill="currentColor"/>
-        </svg>
-        ALPHA<span class="brand__sub">Admiral</span>
-      </a>
+.challenge-box {
+  margin-top: var(--space-5);
+  padding: var(--space-5);
+  background: var(--color-paper-alt);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+}
 
-      <nav class="nav__links" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="#vocab">Vocabulary</a>
-        <a href="#products">Products</a>
-        <a href="#case">Case Study</a>
-        <a href="#deposit-slip">Deposit Slip</a>
-      </nav>
+.scenario-quote {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-accent-strong);
+  margin: var(--space-3) 0;
+}
 
-      <div class="nav__actions">
-        <a href="dashboard.html" class="btn btn--ghost btn--sm">← Dashboard</a>
-      </div>
-    </div>
-  </header>
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
 
-  <!-- MODULE HEADER -->
-  <section class="dash-header">
-    <div class="container">
-      <div class="dash-header__top reveal">
-        <div>
-          <span class="eyebrow">D3 Perbankan dan Keuangan — Universitas Siliwangi</span>
-          <h1 class="h1" style="margin-top:12px">Praktika English for Business</h1>
-          <p class="lede" style="margin-top:12px">
-            <em>"Where English meets the teller counter."</em><br />
-            <strong>Week 1:</strong> Orientasi & Personal Finance / Banking Product Profiles[cite: 1]
-          </p>
-        </div>
-      </div>
+@media (max-width: 768px) {
+  .grid-2col { grid-template-columns: 1fr; }
+}
 
-      <div class="dash-header__meta reveal" style="transition-delay:120ms">
-        <div class="dash-stat">
-          <span class="dash-stat__value">16</span>
-          <span class="dash-stat__label">Interactive Steps</span>
-        </div>
-        <div class="dash-stat">
-          <span class="dash-stat__value">100%</span>
-          <span class="dash-stat__label">Authentic Material</span>
-        </div>
-        <div class="dash-stat">
-          <span class="dash-stat__value">Module 01</span>
-          <span class="dash-stat__label">Current Progress</span>
-        </div>
-      </div>
-    </div>
-  </section>
+.styled-list li {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-line);
+}
 
-  <!-- MAIN MODULE BODY -->
-  <main class="container module-body">
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
 
-    <!-- 01 & 02. Welcome & Today's Challenge -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">01 & 02</span>
-        <h2 class="h2">Welcome & Today's Challenge</h2>
-      </div>
-      <p class="lede">Pernah buka rekening bank sendiri? Apa satu hal yang bikin bingung?[cite: 1]</p>
-      
-      <div class="challenge-box">
-        <span class="eyebrow">The Teller Counter Scenario</span>
-        <h3 class="h3" style="margin-top:8px">A foreign customer walks into your branch:</h3>
-        <blockquote class="scenario-quote">
-          "What's the difference between your savings account and your deposit account?"[cite: 1]
-        </blockquote>
-        <p class="text-slate">Bisakah Anda menjawabnya dengan tepat dalam Bahasa Inggris? Kita akan kembali ke pertanyaan ini di akhir modul.[cite: 1]</p>
-      </div>
-    </section>
+.roadmap-timeline .step {
+  padding: 8px var(--space-3);
+  background: var(--color-paper-alt);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-slate);
+}
 
-    <!-- 03 & 04. Course Contract & Semester Roadmap -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">03 & 04</span>
-        <h2 class="h2">Course Contract & Semester Roadmap</h2>
-      </div>
-      <div class="grid-2col">
-        <div>
-          <h3 class="h3" style="margin-bottom: 12px;">Kontrak Belajar</h3>
-          <ul class="styled-list">
-            <li><strong>1.</strong> Hadir & aktif tiap minggu[cite: 1]</li>
-            <li><strong>2.</strong> Semua tugas berbahasa Inggris[cite: 1]</li>
-            <li><strong>3.</strong> Proyek Akhir: Simulasi Cabang Bank[cite: 1]</li>
-          </ul>
-          <div class="grading-badge" style="margin-top:20px;">
-            <strong>Bobot Penilaian:</strong> Tugas Mingguan (30%) | UTS (20%) | Proyek Akhir (50%)[cite: 1]
-          </div>
-        </div>
-        <div>
-          <h3 class="h3" style="margin-bottom: 12px;">Peta Perjalanan Semester</h3>
-          <div class="roadmap-timeline">
-            <span class="step active">Week 1: Personal Finance[cite: 1]</span>
-            <span class="step">Small Talk[cite: 1]</span>
-            <span class="step">Telepon[cite: 1]</span>
-            <span class="step">Surat Bisnis[cite: 1]</span>
-            <span class="step">Presentasi[cite: 1]</span>
-            <span class="step">Rapat[cite: 1]</span>
-            <span class="step highlight">Simulasi Cabang Bank[cite: 1]</span>
-          </div>
-        </div>
-      </div>
-    </section>
+.roadmap-timeline .step.active {
+  color: var(--color-accent-strong);
+  border: 1px solid var(--color-accent);
+}
 
-    <!-- 05. Quick Poll -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">05</span>
-        <h2 class="h2">Quick Poll Check</h2>
-      </div>
-      <p>Mana yang <strong>BUKAN</strong> merupakan produk perbankan?[cite: 1]</p>
-      <div class="poll-options" id="pollGroup">
-        <button class="poll-btn" onclick="checkPoll(this, false)">A. Savings[cite: 1]</button>
-        <button class="poll-btn" onclick="checkPoll(this, false)">B. Deposito[cite: 1]</button>
-        <button class="poll-btn" onclick="checkPoll(this, false)">C. Kredit[cite: 1]</button>
-        <button class="poll-btn" onclick="checkPoll(this, true)">D. Payung[cite: 1]</button>
-      </div>
-      <div id="pollFeedback" class="feedback-text"></div>
-    </section>
+.roadmap-timeline .step.highlight {
+  color: var(--color-ink);
+  background: var(--color-navy-deep);
+}
 
-    <!-- 06. Personal Finance Vocabulary -->
-    <section class="mod-card reveal" id="vocab">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">06</span>
-        <h2 class="h2">Personal Finance Vocabulary</h2>
-      </div>
-      <p class="text-slate">Klik kartu istilah untuk melihat definisi dan konteks perbankan:[cite: 1]</p>
-      <div class="vocab-grid">
-        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
-          <span class="vocab-term">Income[cite: 1]</span>
-          <span class="vocab-def">Money received, especially on a regular basis, for work or through investments.</span>
-        </div>
-        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
-          <span class="vocab-term">Expense[cite: 1]</span>
-          <span class="vocab-def">The cost required for something; money spent on living costs and transactions.</span>
-        </div>
-        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
-          <span class="vocab-term">Savings[cite: 1]</span>
-          <span class="vocab-def">Money saved or preserved, typically through a bank account.</span>
-        </div>
-        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
-          <span class="vocab-term">Budget[cite: 1]</span>
-          <span class="vocab-def">An estimate of income and expenditure for a set period of time.</span>
-        </div>
-        <div class="vocab-card" onclick="this.classList.toggle('flipped')">
-          <span class="vocab-term">Debt[cite: 1]</span>
-          <span class="vocab-def">An amount of money borrowed by one party from another, to be paid back later.</span>
-        </div>
-      </div>
-    </section>
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
 
-    <!-- 07. Savings Passbook -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">07</span>
-        <h2 class="h2">Savings Passbook Exploration</h2>
-      </div>
-      <p class="text-slate">Analisis transaksi buku tabungan di bawah ini:[cite: 1]</p>
-      <div class="table-wrap">
-        <table class="passbook-table">
-          <thead>
-            <tr>
-              <th>Date[cite: 1]</th>
-              <th>Description[cite: 1]</th>
-              <th>Withdrawal (Rp)[cite: 1]</th>
-              <th>Deposit (Rp)[cite: 1]</th>
-              <th>Balance (Rp)[cite: 1]</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>03/07[cite: 1]</td>
-              <td>Opening Deposit[cite: 1]</td>
-              <td>-</td>
-              <td>2,000,000[cite: 1]</td>
-              <td>2,000,000[cite: 1]</td>
-            </tr>
-            <tr>
-              <td>10/07[cite: 1]</td>
-              <td>ATM Withdrawal[cite: 1]</td>
-              <td>500,000[cite: 1]</td>
-              <td>-</td>
-              <td>1,500,000[cite: 1]</td>
-            </tr>
-            <tr>
-              <td>15/07[cite: 1]</td>
-              <td>Salary Transfer[cite: 1]</td>
-              <td>-</td>
-              <td>3,000,000[cite: 1]</td>
-              <td>4,500,000[cite: 1]</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+.poll-btn {
+  text-align: left;
+  padding: 12px var(--space-4);
+  background: var(--color-paper-alt);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  transition: background var(--dur-fast) var(--ease);
+  cursor: pointer;
+}
 
-    <!-- 08. Four Core Banking Products -->
-    <section class="mod-card reveal" id="products">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">08</span>
-        <h2 class="h2">Empat Produk Perbankan Inti</h2>
-      </div>
-      <div class="product-grid">
-        <div class="product-card">
-          <h3 class="h3">Savings Account[cite: 1]</h3>
-          <p>For daily transactions and flexible liquid savings. Lower interest rate, high liquidity.[cite: 1]</p>
-        </div>
-        <div class="product-card">
-          <h3 class="h3">Time Deposit[cite: 1]</h3>
-          <p>Fixed-term investment account with higher interest rates. Penalty applies for early withdrawal.[cite: 1]</p>
-        </div>
-        <div class="product-card">
-          <h3 class="h3">Loan[cite: 1]</h3>
-          <p>Borrowed capital provided by the bank, repaid over time with agreed interest rates.[cite: 1]</p>
-        </div>
-        <div class="product-card">
-          <h3 class="h3">Debit / Credit Card[cite: 1]</h3>
-          <p>Payment tools linked directly to account funds (Debit) or extended credit lines (Credit).[cite: 1]</p>
-        </div>
-      </div>
-    </section>
+.poll-btn:hover {
+  border-color: var(--color-accent);
+}
 
-    <!-- 09. Mini Case: Pak Budi -->
-    <section class="mod-card reveal" id="case">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">09</span>
-        <h2 class="h2">Studi Kasus Mini: Pak Budi</h2>
-      </div>
-      <div class="case-box">
-        <p><strong>Profil:</strong> Pak Budi (35 tahun) ingin menabung untuk biaya kuliah anaknya 5 tahun lagi.[cite: 1]</p>
-        <p style="margin-top:10px;">Produk mana yang paling cocok direkomendasikan oleh seorang Banker?[cite: 1]</p>
-        <div class="case-actions" style="margin-top:16px;">
-          <button class="btn btn--ghost btn--sm" onclick="solveCase('savings')">Savings Account[cite: 1]</button>
-          <button class="btn btn--ghost btn--sm" onclick="solveCase('deposit')">Time Deposit (Deposito)[cite: 1]</button>
-          <button class="btn btn--ghost btn--sm" onclick="solveCase('loan')">Personal Loan[cite: 1]</button>
-        </div>
-        <div id="caseFeedback" class="feedback-text" style="margin-top:14px;"></div>
-      </div>
-    </section>
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
 
-    <!-- 10 & 11. Language Focus & Pair Practice -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">10 & 11</span>
-        <h2 class="h2">Language Focus & Banker–Customer Pair Practice</h2>
-      </div>
-      <p class="text-slate">Gunakan struktur frasa perbankan berikut dalam simulasi berpasangan:[cite: 1]</p>
-      
-      <div class="lang-focus-box">
-        <div class="phrase-item">💬 <em>"This account offers..."</em>[cite: 1]</div>
-        <div class="phrase-item">💬 <em>"The minimum balance is..."</em>[cite: 1]</div>
-        <div class="phrase-item">💬 <em>"You can withdraw..."</em>[cite: 1]</div>
-      </div>
+.vocab-card {
+  background: var(--color-paper-alt);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  cursor: pointer;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: border-color var(--dur-fast) var(--ease);
+}
 
-      <div class="practice-box" style="margin-top:20px;">
-        <h3 class="h3">Pair Practice Directive[cite: 1]</h3>
-        <p>Jelaskan <strong>SATU produk</strong> ke pasanganmu. Pasanganmu berperan sebagai nasabah yang bertanya. Gunakan ekspresi baku di atas![cite: 1]</p>
-      </div>
-    </section>
+.vocab-card:hover { border-color: var(--color-accent); }
+.vocab-term { font-family: var(--font-mono); color: var(--color-accent-strong); font-weight: 500; }
+.vocab-def { display: none; font-size: 0.85rem; margin-top: 6px; color: var(--color-ink-soft); }
+.vocab-card.flipped .vocab-term { display: none; }
+.vocab-card.flipped .vocab-def { display: block; }
 
-    <!-- 12. Transaction Flow -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">12</span>
-        <h2 class="h2">Alur Transaksi di Bank</h2>
-      </div>
-      <div class="flow-steps">
-        <div class="flow-step"><span>1</span> Take a Number[cite: 1]</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step"><span>2</span> Fill the Form[cite: 1]</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step"><span>3</span> Teller[cite: 1]</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step"><span>4</span> Receipt[cite: 1]</div>
-      </div>
-    </section>
+.passbook-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
 
-    <!-- 13. Interactive Deposit Slip -->
-    <section class="mod-card reveal" id="deposit-slip">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">13</span>
-        <h2 class="h2">Interactive Deposit Slip</h2>
-      </div>
-      <p class="text-slate">Lengkapi formulir setoran tunai simulasi di bawah ini:[cite: 1]</p>
-      
-      <form class="deposit-form" onsubmit="submitForm(event)">
-        <div class="form-row">
-          <label>Account Name:[cite: 1]</label>
-          <input type="text" placeholder="e.g. Budi Santoso" required />
-        </div>
-        <div class="form-row">
-          <label>Account Number:[cite: 1]</label>
-          <input type="text" placeholder="e.g. 102-994-182" required />
-        </div>
-        <div class="form-row">
-          <label>Amount (Rp):[cite: 1]</label>
-          <input type="number" placeholder="e.g. 5000000" required />
-        </div>
-        <div class="form-row">
-          <label>Date:[cite: 1]</label>
-          <input type="date" required />
-        </div>
-        <button type="submit" class="btn btn--accent btn--sm" style="margin-top:10px;">Verify Deposit Slip[cite: 1]</button>
-      </form>
-      <div id="formFeedback" class="feedback-text" style="margin-top:14px;"></div>
-    </section>
+.passbook-table th, .passbook-table td {
+  padding: 10px;
+  border: 1px solid var(--color-line);
+  text-align: left;
+}
 
-    <!-- 14 & 15. Challenge Resolution & Reflection -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">14 & 15</span>
-        <h2 class="h2">Challenge Resolution & Mini Reflection</h2>
-      </div>
-      
-      <div class="reflection-box">
-        <h3 class="h3">Kembali ke Tantangan Awal:[cite: 1]</h3>
-        <p><em>"What's the difference between your savings account and your deposit account?"</em>[cite: 1]</p>
-        <textarea class="reflection-input" placeholder="Tuliskan penjelasan produk Anda di sini dalam Bahasa Inggris..."></textarea>
-      </div>
+.passbook-table th { background: var(--color-paper-alt); color: var(--color-accent-strong); }
 
-      <div class="reflection-box" style="margin-top:20px;">
-        <h3 class="h3">Mini Reflection:[cite: 1]</h3>
-        <p>Satu produk bank yang sekarang bisa kamu jelaskan dalam Bahasa Inggris adalah...[cite: 1]</p>
-        <input type="text" class="reflection-single" placeholder="Ketik nama produk..." />
-      </div>
-    </section>
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
 
-    <!-- 16. Homework & Preview -->
-    <section class="mod-card reveal">
-      <div class="mod-card__header">
-        <span class="chip chip--accent">16</span>
-        <h2 class="h2">Homework & Next Week Preview</h2>
-      </div>
-      <p><strong>Tugas:</strong> Unduh silabus & kerjakan kuis istilah produk di LMS.[cite: 1]</p>
-      <p style="margin-top:8px; color:var(--color-accent-strong)"><strong>Minggu Depan:</strong> Perkenalan Diri & Small Talk di Cabang Bank.[cite: 1]</p>
-      <blockquote style="margin-top:16px; font-family:var(--font-display); font-style:italic; color:var(--color-ink-soft);">
-        "Practice makes the professional."[cite: 1]
-      </blockquote>
-    </section>
+.product-card {
+  padding: var(--space-4);
+  background: var(--color-paper-alt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-line);
+}
 
-  </main>
+.flow-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <span class="brand" style="font-size:1.1rem">ALPHA<span class="brand__sub">Admiral</span></span>
-        <span class="footer__note">© <span id="footerYear"></span> ALPHA by Admiral. Learn Without Limits.</span>
-      </div>
-      <div class="footer__links">
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-      </div>
-    </div>
-  </footer>
+.flow-step {
+  background: var(--color-paper-alt);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border: 1px solid var(--color-line);
+}
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/animations.js"></script>
-  <script src="assets/js/week1.js"></script>
-</body>
-</html>
+.flow-step span {
+  color: var(--color-accent-strong);
+  margin-right: 6px;
+}
+
+.flow-arrow { color: var(--color-slate); font-weight: bold; }
+
+.deposit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  max-width: 480px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-row label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-slate);
+}
+
+.form-row input {
+  padding: 10px;
+  background: var(--color-paper-alt);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.reflection-input, .reflection-single {
+  width: 100%;
+  padding: 10px;
+  background: var(--color-paper-alt);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  margin-top: 10px;
+}
+
+.reflection-input { min-height: 90px; resize: vertical; }
+
+.feedback-text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
