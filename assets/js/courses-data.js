@@ -2,12 +2,10 @@
  * ALPHA by Admiral — Course Data
  * -------------------------------------------------------------
  * This is the ONLY place course information lives for Version 0.1.
- * To add a future course, add a new object to this array — the
- * landing page preview and the Course Dashboard both render from
- * this file automatically. No other file needs to change.
  *
- * When lesson pages exist, add a `href` pointing to the course's
- * homepage and render-courses.js will turn the card into a link.
+ * To add a future course, add a new object to this array.
+ * The landing page and Course Dashboard both render from
+ * this file automatically.
  */
 
 const ALPHA_COURSES = [
@@ -19,8 +17,9 @@ const ALPHA_COURSES = [
     format: "Semester Course",
     blurb:
       "Financial vocabulary, case studies, and professional communication built for banking and finance students.",
-    href: "week-1.html", // <-- Tautan modul Week 1 ditambahkan di sini
+    href: "week-1.html",
   },
+
   {
     code: "EN-MGT",
     title: "English for Management",
@@ -31,6 +30,7 @@ const ALPHA_COURSES = [
       "Leadership language, negotiation, and workplace communication for future managers.",
     href: null,
   },
+
   {
     code: "EN-PVT",
     title: "English Course",
@@ -41,4 +41,4 @@ const ALPHA_COURSES = [
       "Personalized lessons shaped around individual goals, pace, and interests.",
     href: null,
   },
-]; 
+];
