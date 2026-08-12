@@ -41,11 +41,4 @@ const ALPHA_COURSES = [
       "Personalized lessons shaped around individual goals, pace, and interests.",
     href: null,
   },
-];    context: "Private Lessons",
-    level: "All Levels",
-    format: "1-on-1 / Small Group",
-    blurb:
-      "Personalized lessons shaped around individual goals, pace, and interests.",
-    href: null,
-  },
-];
+]; 
